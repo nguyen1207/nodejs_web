@@ -28,7 +28,7 @@ app.set('views', path.join(__dirname, 'resources\\views'));
 // Routes init
 route(app);
 
-// test from vscode
+// test from vscode 2
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
