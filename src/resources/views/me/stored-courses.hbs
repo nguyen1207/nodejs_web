@@ -28,7 +28,7 @@
                 <option value="delete">Delete</option>
             </select>
             
-            <button class="btn btn-primary btn-sm btn-start-submit disabled">Start</button>
+            <button class="btn btn-primary btn-sm btn-start-submit" disabled>Start</button>
         </div>
     </div>
     
@@ -94,7 +94,6 @@
     </div>
 </div>
 
-<!-- Delete hidden form -->
 <form name="delete-course-form" method="POST"></form>
 
 <script>
@@ -135,24 +134,15 @@
             selectAllCoursesCheckbox.prop('checked', isCheckedAll);
             renderCheckAllStartSubmitBtn();
         });
-
-        // Check submit button clicked
-        startSubmitBtn.on('submit', function(e) {
-            var isSubmitable = !(this).hasClass('disabled');
-            if(!isSubmitable) {
-                e.preventDefault();
-            }
-        });
         
-        console.log(startSubmitBtn);
         // Re-render start submit button
         function renderCheckAllStartSubmitBtn() {
             var checkedCount = $('input[name="courseIDs[]"]:checked').length;
             if(checkedCount) {
-                startSubmitBtn.removeClass('disabled');
+                startSubmitBtn.attr('disabled', false);
             }
             else {
-                startSubmitBtn.addClass('disabled');
+                startSubmitBtn.attr('disabled', true);
             }
         };
 
