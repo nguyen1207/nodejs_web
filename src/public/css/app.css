@@ -10,3 +10,7 @@
 .bin-icon {
   width: 18px;
   height: 18px; }
+
+.checkbox-select-all-option {
+  width: 160px;
+  margin: 0 16px; }
