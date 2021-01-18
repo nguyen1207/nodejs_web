@@ -25,7 +25,7 @@ class CourseController {
         const course = new Course(formData);
         course.save();
 
-        res.redirect('/');
+        res.redirect('/me/stored/courses');
     }
 
     // [GET] /courses/:id/edit
@@ -72,6 +72,16 @@ class CourseController {
         switch (req.body.action) {
             case 'delete':
                 Course.delete({ _id: { $in: req.body.courseIDs } })
+                    .then(() => res.redirect('back'))
+                    .catch(next);
+                break;
+            case 'restore':
+                Course.restore({ _id: { $in: req.body.courseIDs } })
+                    .then(() => res.redirect('back'))
+                    .catch(next);
+                break;
+            case 'forceDestroy':
+                Course.deleteMany({ _id: { $in: req.body.courseIDs } })
                     .then(() => res.redirect('back'))
                     .catch(next);
                 break;
