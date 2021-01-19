@@ -36,11 +36,20 @@
     <thead>
         <tr>
             <th scope="col"></th>
-            <th scope="col">Course name</th>
-            <th scope="col">Level</th>
-            <th scope="col">Created at</th>
             <th scope="col"></th>
-            <th></th>
+            <th scope="col">
+                Course name
+                {{{sortable 'name' _sort}}}
+            </th>
+            <th scope="col">
+                Level
+                {{{sortable 'level' _sort}}}
+            </th>
+            <th scope="col">
+                Created at
+                {{{sortable 'createdAt' _sort}}}
+            </th>
+            <th scope="col"></th>
         </tr>
     </thead>
         <tbody>
